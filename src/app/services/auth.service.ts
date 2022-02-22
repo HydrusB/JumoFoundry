@@ -29,6 +29,8 @@ export class AuthService {
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();
 
+    
+
     this.apiService.fetchToken().subscribe(data => {
       this.tokenService.saveToken(data.access_token);
       this.tokenService.saveRefreshToken(data.refresh_token)

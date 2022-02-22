@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
   showEd = false;
 
   ngOnInit(): void {
+    const code = this.route.snapshot.queryParamMap.get('code')
+    console.log(code)
   }
   FetchSong():void{
     location.replace("https://www.bungie.net/en/OAuth/Authorize?client_id=39412&response_type=code")
