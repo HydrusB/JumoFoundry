@@ -12,8 +12,10 @@ export class MainComponent implements OnInit {
   showEd = false;
 
   ngOnInit(): void {
-    const code = this.route.snapshot.queryParamMap.get('code')
-    console.log(code)
+    this.route.queryParams.subscribe(params => {
+      const code = params['code'];
+      console.log(code)
+    })
   }
   FetchSong():void{
     location.replace("https://www.bungie.net/en/OAuth/Authorize?client_id=39412&response_type=code")
