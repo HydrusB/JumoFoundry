@@ -13,7 +13,9 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      const code = params['code'];
+      
+      var code = params['code'];
+      localStorage.setItem("Code", code)
       console.log(code)
     })
   }
